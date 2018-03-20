@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { ApolloModule, Apollo } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     ApolloModule,
     HttpLinkModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes
     )

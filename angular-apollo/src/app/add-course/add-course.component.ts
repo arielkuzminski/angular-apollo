@@ -1,4 +1,7 @@
+import { Apollo } from 'apollo-angular';
 import { Component, OnInit } from '@angular/core';
+
+import gql from 'graphql-tag';
 
 @Component({
   selector: 'app-add-course',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCourseComponent implements OnInit {
 
-  constructor() { }
+  title: string;
+  description: string;
+
+  submitCourseMutation = gql`
+    mutation createPost {
+      createPost(title: ) {
+        id
+      }
+    }
+  `;
+
+  constructor(private apollo: Apollo) { }
 
   ngOnInit() {
+  }
+
+  submitCourse() {
+
+    this.apollo.mutate({
+      mutation: this.submitCourseMutation
+    }).subscribe();
+
   }
 
 }
